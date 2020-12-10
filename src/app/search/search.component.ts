@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
+  userTags: string;
+  userQuery = new Map<any, any>();
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  search() {
+    this.userTags = this.userTags.replace(' ', '+');
+    this.userQuery.set('tags', this.userTags);
+    console.log(this.userQuery);
+    return this.userQuery;
   }
 
 }
