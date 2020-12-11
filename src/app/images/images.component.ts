@@ -1,6 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {ImagesService} from '../images.service';
-import {SearchComponent} from '../search/search.component';
 
 @Component({
   selector: 'app-images',

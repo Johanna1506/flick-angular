@@ -16,16 +16,13 @@ import {FormsModule} from '@angular/forms';
   declarations: [
     AppComponent,
     ImagesComponent,
-
     SearchComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-
     HttpClientModule,
-
     FormsModule
 
   ],

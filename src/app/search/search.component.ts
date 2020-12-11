@@ -14,14 +14,16 @@ export class SearchComponent implements OnInit {
   dateMax: string = '';
   methodeTri: string = 'date-posted-desc';
   inGallery: boolean = false;
+  userQueryString: string = '';
 
+  @Output() sendUrl = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  search(): string {
+  search(): void {
     this.userTags = this.userTags.replace(' ', '+');
     this.userQuery.set('tags', this.userTags);
 
@@ -50,7 +52,8 @@ export class SearchComponent implements OnInit {
       this.userQuery.set('height', this.tailleImg);
       this.userQuery.set('width', this.tailleImg);
     }
-    return this.convert(this.userQuery);
+    this.userQueryString = this.convert(this.userQuery);
+    this.send(this.userQueryString);
   }
 
   convert(userQuery: Map<string, string>): string {
@@ -61,6 +64,10 @@ export class SearchComponent implements OnInit {
     }
 
     return query;
+  }
+
+  send(message: string): void {
+    this.sendUrl.emit(message);
   }
 
 }
