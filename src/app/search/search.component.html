@@ -1,0 +1,36 @@
+<h1>Recherche de photos</h1>
+
+<div class="search">
+  <label for="search">Mots-cle: </label>
+  <input id="search" type="text" [(ngModel)]="userTags" />
+  <button (click)="search()">Rechercher</button>
+
+  <label for="size">Taille minimale: </label>
+  <select id="size" [(ngModel)]="tailleImg">
+    <option value="0" selected>Petite</option>
+    <option value="640">Moyenne</option>
+    <option value="1024">Grande</option>
+  </select>
+
+  <label for="date-min">Date d'upload mini: </label>
+  <input id="date-min" type="date" [(ngModel)]="dateMin" />
+
+  <label for="date-max">Date d'upload maxi: </label>
+  <input id="date-max" type="date" [(ngModel)]="dateMax" />
+
+  <label for="methode-tri">Trier par: </label>
+  <select id="methode-tri" [(ngModel)]="methodeTri">
+    <option value="date-posted-desc" selected>Date de publication (du plus recent au plus ancien)</option>
+    <option value="date-posted-asc">Date de publication (du plus ancien au plus recent)</option>
+    <option value="date-taken-desc">Date de prise (du plus recent au plus ancien)</option>
+    <option value="date-taken-asc">Date de prise (du plus ancien au plus recent)</option>
+    <option value="interestingness-desc">Interet decroissant</option>
+    <option value="interestingness-asc">Interet croissant</option>
+    <option value="relevance">Pertinence</option>
+  </select>
+
+  <input id="gallery" type="checkbox" [(ngModel)]="inGallery" />
+  <label for="gallery">Ne rechercher que les images appartenant a une galerie</label>
+
+</div>
+
