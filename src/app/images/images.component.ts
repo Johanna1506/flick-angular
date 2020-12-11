@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ImagesService} from '../images.service';
-import {SearchComponent} from '../search/search.component';
 
 @Component({
   selector: 'app-images',
@@ -12,11 +11,7 @@ export class ImagesComponent implements OnInit {
   urlImages: Array<any> = [];
   constructor(private images: ImagesService) {}
 
-  @Input() search: SearchComponent;
-
   ngOnInit(): void {
-
-    console.log(this.search.userQuery);
      this.images.getImages('puppy').subscribe(data => {
        this.allImages = data.photos.photo;
 
