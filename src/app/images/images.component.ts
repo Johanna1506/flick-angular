@@ -1,4 +1,4 @@
-import {Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input } from '@angular/core';
 import {ImagesService} from '../images.service';
 
 @Component({
@@ -9,11 +9,14 @@ import {ImagesService} from '../images.service';
 export class ImagesComponent implements OnInit {
   allImages: Array<any> = [];
   urlImages: Array<any> = [];
+  @Input() url: string;
+
   constructor(private images: ImagesService) {}
 
-  ngOnInit(): void {
 
-     this.images.getImages('puppy').subscribe(data => {
+  ngOnInit(): void {
+      console.log(this.url);
+     this.images.getImages(this.url).subscribe(data => {
        this.allImages = data.photos.photo;
 
        this.allImages.forEach(photo => {

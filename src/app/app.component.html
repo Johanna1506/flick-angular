@@ -1,6 +1,9 @@
-<app-search (sendUrl)="receivedUrl($event)"></app-search>
+<app-header></app-header>
 
-<app-images></app-images>
+<app-search (sendUrl)="receivedUrl($event)"></app-search>
+<div *ngIf="url !== undefined">
+  <app-images [url]="url"></app-images>
+</div>
 
 <router-outlet></router-outlet>
 

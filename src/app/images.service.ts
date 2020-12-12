@@ -14,8 +14,9 @@ export class ImagesService {
 
   constructor(private http: HttpClient) { }
 
-  getImages(tags: string): Observable<any>{
-    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=822a13fc8b4ea90fc360e05778c5ada6&tags=${tags}&format=json&nojsoncallback=1`;
+  getImages(url: string): Observable<any>{
+
+    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=d430fbccb88b05fc931fc24d8400e71e&tags=${url}&format=json&nojsoncallback=1`;
 
     // @ts-ignore
     return this.http.get(urlApi);
