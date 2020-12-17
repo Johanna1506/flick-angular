@@ -3,29 +3,17 @@
   justify-content: center;
   color: rgb(204, 199, 199);
   background-color: #1e324655;
+  margin-bottom: 20px;
 }
 
 .advanced {
   display: flex;
   justify-content: space-evenly;
-  margin-top: 10px;
-}
-
-
-
-
-
-.img-fluid {
-  width: 100%;
-  height: auto;
+  margin-bottom: 20px;
 }
 
 .screen-width {
   width: 80%;
-}
-
-.uppercase {
-  text-transform: uppercase;
 }
 
 .text-center {
@@ -35,8 +23,6 @@
 .flex-center, .flex-between, .flex-around, .flex-evenly, .flex-start, .flex-end {
   display: flex;
 }
-
-
 
 .flex-between {
   justify-content: space-between;
