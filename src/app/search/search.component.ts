@@ -62,13 +62,7 @@ export class SearchComponent implements OnInit {
       userQuery.set('height', this.tailleImg);
       userQuery.set('width', this.tailleImg);
     }
-<<<<<<< HEAD
-    this.userQueryString = this.convert(this.userQuery);
-    this.send(this.userQueryString);
-=======
     return this.convert(userQuery);
-
->>>>>>> c57d90472fa8f1ce72d8145c34614a681bc250ff
   }
 
   convert(userQuery: Map<string, string>): string {
@@ -81,10 +75,6 @@ export class SearchComponent implements OnInit {
     return query;
   }
 
-<<<<<<< HEAD
-  send(message: string): void {
-    this.sendUrl.emit(message);
-=======
   getImgList(queryString): void {
     // recuperation de la liste des images depuis le service images
     this.urlImages = [];
@@ -94,7 +84,6 @@ export class SearchComponent implements OnInit {
         this.urlImages.push(url);
       });
     });
->>>>>>> c57d90472fa8f1ce72d8145c34614a681bc250ff
   }
 
 }
