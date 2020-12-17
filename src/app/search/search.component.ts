@@ -8,8 +8,7 @@ import {ImagesService} from '../images.service';
 })
 export class SearchComponent implements OnInit {
 
-
-  userQuery = new Map<string, string>();
+  advanced: boolean = false;
   userTags: string;
   tailleImg: string = '';
   dateMin: string = '';
@@ -84,6 +83,10 @@ export class SearchComponent implements OnInit {
         this.urlImages.push(url);
       });
     });
+  }
+
+  toggleAdvanced(): void {
+    this.advanced = !this.advanced;
   }
 
 }
