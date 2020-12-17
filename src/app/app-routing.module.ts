@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ImagesComponent } from './images/images.component';
+import {DetailComponent} from './detail/detail.component';
 
 const routes: Routes = [
-  { path: 'image', component: ImagesComponent},
+  { path: 'image/:id', component: DetailComponent},
 ];
 
 @NgModule({
