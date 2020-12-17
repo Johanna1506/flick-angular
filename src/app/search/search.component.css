@@ -2,4 +2,15 @@
   display: flex;
 }
 
+.wrapImage {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapImage div {
+  flex: 1 1 20%;
+}
+.wrapImage div img {
+  width: 250px;
+}
+
 /*# sourceMappingURL=search.component.css.map */

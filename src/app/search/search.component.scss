@@ -1,3 +1,16 @@
 .search {
   display: flex;
 }
+
+.wrapImage {
+  display: flex;
+  flex-wrap: wrap;
+
+  div {
+    flex: 1 1 20%;
+    img {
+      width: 250px;
+    }
+  }
+}
+

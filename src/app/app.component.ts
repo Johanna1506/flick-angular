@@ -7,10 +7,4 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class AppComponent {
   title = 'flickr';
-  url: string;
-
-
-  receivedUrl(url: string): void {
-    this.url = url;
-  }
 }

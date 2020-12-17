@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angular/core';
+import {ImagesService} from '../images.service';
 
 @Component({
   selector: 'app-search',
@@ -7,8 +8,9 @@ import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angu
 })
 export class SearchComponent implements OnInit {
 
+
   userQuery = new Map<string, string>();
-  userTags: string = '';
+  userTags: string;
   tailleImg: string = '';
   dateMin: string = '';
   dateMax: string = '';
@@ -16,44 +18,57 @@ export class SearchComponent implements OnInit {
   inGallery: boolean = false;
   userQueryString: string = '';
 
-  @Output() sendUrl = new EventEmitter<string>();
+  urlImages: Array<any> = [];
+  imgData: object;
 
-  constructor() { }
+  constructor(private images: ImagesService) { }
 
   ngOnInit(): void {
   }
 
   search(): void {
+    this.userQueryString = this.parseQuery();
+    this.getImgList(this.userQueryString);
+  }
+
+  parseQuery(): string {
     this.userTags = this.userTags.replace(' ', '+');
-    this.userQuery.set('tags', this.userTags);
+
+    const userQuery = new Map<string, string>();
+    userQuery.set('tags', this.userTags);
 
     if (this.dateMin !== '') {
       const dateMinStamp = Math.round(new Date(this.dateMin.replace('-', '/')).getTime() / 1000).toString();
-      this.userQuery.set('min_upload_date', dateMinStamp);
+      userQuery.set('min_upload_date', dateMinStamp);
     }
 
     if (this.dateMax !== '') {
       const dateMaxStamp = Math.round(new Date(this.dateMax.replace('-', '/')).getTime() / 1000).toString();
-      this.userQuery.set('max_upload_date', dateMaxStamp);
+      userQuery.set('max_upload_date', dateMaxStamp);
     }
 
-    this.userQuery.set('sort', this.methodeTri);
+    userQuery.set('sort', this.methodeTri);
 
     if (this.inGallery) {
-      this.userQuery.set('in_gallery', 'yes');
+      userQuery.set('in_gallery', 'yes');
     }
     else {
-      this.userQuery.set('in_gallery', 'no');
+      userQuery.set('in_gallery', 'no');
     }
 
     if (this.tailleImg !== '')
     {
-      this.userQuery.set('dimension_search_mode', 'min');
-      this.userQuery.set('height', this.tailleImg);
-      this.userQuery.set('width', this.tailleImg);
+      userQuery.set('dimension_search_mode', 'min');
+      userQuery.set('height', this.tailleImg);
+      userQuery.set('width', this.tailleImg);
     }
+<<<<<<< HEAD
     this.userQueryString = this.convert(this.userQuery);
     this.send(this.userQueryString);
+=======
+    return this.convert(userQuery);
+
+>>>>>>> c57d90472fa8f1ce72d8145c34614a681bc250ff
   }
 
   convert(userQuery: Map<string, string>): string {
@@ -66,8 +81,20 @@ export class SearchComponent implements OnInit {
     return query;
   }
 
+<<<<<<< HEAD
   send(message: string): void {
     this.sendUrl.emit(message);
+=======
+  getImgList(queryString): void {
+    // recuperation de la liste des images depuis le service images
+    this.urlImages = [];
+    this.images.getImages(queryString).subscribe(data => {
+      (data.photos.photo).forEach(photo => {
+        const url = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+        this.urlImages.push(url);
+      });
+    });
+>>>>>>> c57d90472fa8f1ce72d8145c34614a681bc250ff
   }
 
 }
