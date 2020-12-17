@@ -7,4 +7,9 @@ import {Component, EventEmitter, Output} from '@angular/core';
 })
 export class AppComponent {
   title = 'flickr';
+  urlImages: {} = [];
+
+  forwardUrls(urlImages: {}): void {
+    this.urlImages = urlImages;
+  }
 }

@@ -1,4 +1,7 @@
 import {Component, OnInit, Input } from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import {ImagesService} from '../images.service';
 
 @Component({
@@ -8,16 +11,17 @@ import {ImagesService} from '../images.service';
 })
 export class ImagesComponent implements OnInit {
 
-  @Input() id: string;
+  @Input() urlImages: {};
+  selectedId: string;
   imgData: object;
 
-  constructor(private images: ImagesService) {}
+  constructor(private route: ActivatedRoute, private router: Router) {}
 
 
   ngOnInit(): void {
-    // recuperation de la liste des images
-    this.images.getInfos(this.id).subscribe(data => {
-      this.imgData = data;
-    });
+  }
+
+  showDetails(imgId: string): void {
+    this.router.navigate(['/image', imgId]);
   }
 }

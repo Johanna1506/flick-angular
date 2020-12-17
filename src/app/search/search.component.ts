@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {ImagesService} from '../images.service';
 
 @Component({
@@ -16,9 +16,9 @@ export class SearchComponent implements OnInit {
   methodeTri: string = 'date-posted-desc';
   inGallery: boolean = false;
   userQueryString: string = '';
+  @Output() sendUrls = new EventEmitter<object>();
 
   urlImages: {} = [];
-  imgData: object;
 
   constructor(private images: ImagesService) { }
 
@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
   search(): void {
     this.userQueryString = this.parseQuery();
     this.getImgList(this.userQueryString);
+    this.sendUrls.emit(this.urlImages);
   }
 
   parseQuery(): string {

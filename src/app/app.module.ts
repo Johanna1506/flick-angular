@@ -10,6 +10,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { SearchComponent } from './search/search.component';
 import {FormsModule} from '@angular/forms';
+import { DetailComponent } from './detail/detail.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {FormsModule} from '@angular/forms';
     AppComponent,
     ImagesComponent,
     SearchComponent,
+    DetailComponent,
 
   ],
   imports: [
