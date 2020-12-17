@@ -8,7 +8,7 @@ import { Component, OnInit, Output, Input, EventEmitter, OnDestroy } from '@angu
 export class SearchComponent implements OnInit {
 
   userQuery = new Map<string, string>();
-  userTags: string = '';
+  userTags: string;
   tailleImg: string = '';
   dateMin: string = '';
   dateMax: string = '';
@@ -53,7 +53,7 @@ export class SearchComponent implements OnInit {
       this.userQuery.set('width', this.tailleImg);
     }
     this.userQueryString = this.convert(this.userQuery);
-    this.send(this.userQueryString);
+    this.sendUrl.emit(this.userQueryString);
   }
 
   convert(userQuery: Map<string, string>): string {
@@ -64,10 +64,6 @@ export class SearchComponent implements OnInit {
     }
 
     return query;
-  }
-
-  send(message: string): void {
-    this.sendUrl.emit(message);
   }
 
 }

@@ -6,6 +6,8 @@ import { HttpErrorResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError} from 'rxjs/operators';
 
+const apikey = '0f498aac5497389c0a3036f1ab30538c';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -16,12 +18,20 @@ export class ImagesService {
 
   getImages(url: string): Observable<any>{
 
-    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=d430fbccb88b05fc931fc24d8400e71e&tags=${url}&format=json&nojsoncallback=1`;
+    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&tags=${url}&format=json&nojsoncallback=1`;
 
     // @ts-ignore
     return this.http.get(urlApi);
 
   }
 
+  getInfos(id: string): Observable<any> {
+
+    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=${apikey}&photo_id=${id}&format=json&nojsoncallback=1`;
+
+    // @ts-ignore
+    return this.http.get(urlApi);
+
+  }
 
 }

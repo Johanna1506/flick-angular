@@ -7,23 +7,29 @@ import {ImagesService} from '../images.service';
   styleUrls: ['./images.component.scss']
 })
 export class ImagesComponent implements OnInit {
-  allImages: Array<any> = [];
+
   urlImages: Array<any> = [];
   @Input() url: string;
+  imgData: object;
 
   constructor(private images: ImagesService) {}
 
 
   ngOnInit(): void {
-      console.log(this.url);
-     this.images.getImages(this.url).subscribe(data => {
-       this.allImages = data.photos.photo;
+    // recuperation de la liste des images
+    this.images.getImages(this.url).subscribe(data => {
+      (data.photos.photo).forEach(photo => {
+        const url = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+        this.urlImages.push(url);
+      });
+    });
+  }
 
-       this.allImages.forEach(photo => {
-         const url = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
-         this.urlImages.push(url);
 
-       });
-     });
+  showImgInfos(id: string): void {
+    // recuperation des infos d'une image
+    this.images.getInfos(id).subscribe(data => {
+      this.imgData = data;
+    });
   }
 }
