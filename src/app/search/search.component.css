@@ -1,5 +1,83 @@
-.search {
+.header {
   display: flex;
+  justify-content: center;
+  color: #ccc7c7;
+  background-color: #1e324655;
+  margin-bottom: 20px;
+}
+
+.advanced {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.screen-width {
+  width: 80%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-center, .flex-between, .flex-around, .flex-evenly, .flex-start, .flex-end {
+  display: flex;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flex-around {
+  justify-content: space-around;
+}
+
+.flex-evenly {
+  justify-content: space-evenly;
+}
+
+.flex-start {
+  justify-content: flex-start;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.btn-header {
+  color: #1e324699;
+  border-radius: 8px;
+  padding: 7px 7px;
+}
+
+.green {
+  background-color: #00ec89;
+}
+
+.pink {
+  background-color: #ff8493;
+}
+
+.logo {
+  width: 100%;
+  height: auto;
+}
+
+.menu1 li {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.search {
+  padding: 7px 7px;
+  border-radius: 2px;
 }
 
 .wrapImage {
@@ -11,6 +89,207 @@
 }
 .wrapImage div img {
   width: 250px;
+}
+
+@media only screen and (min-width: 1701px) {
+  /* For desktop: */
+  .bdesktop1 {
+    width: 8.33%;
+  }
+
+  .bdesktop2 {
+    width: 16.66%;
+  }
+
+  .bdesktop3 {
+    width: 25%;
+  }
+
+  .bdesktop4 {
+    width: 33.33%;
+  }
+
+  .bdesktop5 {
+    width: 41.66%;
+  }
+
+  .bdesktop6 {
+    width: 50%;
+  }
+
+  .bdesktop7 {
+    width: 58.33%;
+  }
+
+  .bdesktop8 {
+    width: 66.66%;
+  }
+
+  .bdesktop9 {
+    width: 75%;
+  }
+
+  .bdesktop10 {
+    width: 83.33%;
+  }
+
+  .bdesktop11 {
+    width: 91.66%;
+  }
+
+  .bdesktop12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 1280px) and (max-width: 1700px) {
+  /* For desktop: */
+  .desktop1 {
+    width: 8.33%;
+  }
+
+  .desktop2 {
+    width: 16.66%;
+  }
+
+  .desktop3 {
+    width: 25%;
+  }
+
+  .desktop4 {
+    width: 33.33%;
+  }
+
+  .desktop5 {
+    width: 41.66%;
+  }
+
+  .desktop6 {
+    width: 50%;
+  }
+
+  .desktop7 {
+    width: 58.33%;
+  }
+
+  .desktop8 {
+    width: 66.66%;
+  }
+
+  .desktop9 {
+    width: 75%;
+  }
+
+  .desktop10 {
+    width: 83.33%;
+  }
+
+  .desktop11 {
+    width: 91.66%;
+  }
+
+  .desktop12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 750px) and (max-width: 1279px) {
+  /* For big tablets: */
+  .tablet1 {
+    width: 8.33%;
+  }
+
+  .tablet2 {
+    width: 16.66%;
+  }
+
+  .tablet3 {
+    width: 25%;
+  }
+
+  .tablet4 {
+    width: 33.33%;
+  }
+
+  .tablet5 {
+    width: 41.66%;
+  }
+
+  .tablet6 {
+    width: 50%;
+  }
+
+  .tablet7 {
+    width: 58.33%;
+  }
+
+  .tablet8 {
+    width: 66.66%;
+  }
+
+  .tablet9 {
+    width: 75%;
+  }
+
+  .tablet10 {
+    width: 83.33%;
+  }
+
+  .tablet11 {
+    width: 91.66%;
+  }
+
+  .tablet12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 260px) and (max-width: 749px) {
+  /* For mobile: */
+  .phone1 {
+    width: 8.33%;
+  }
+
+  .phone2 {
+    width: 16.66%;
+  }
+
+  .phone3 {
+    width: 25%;
+  }
+
+  .phone4 {
+    width: 33.33%;
+  }
+
+  .phone5 {
+    width: 41.66%;
+  }
+
+  .phone6 {
+    width: 50%;
+  }
+
+  .phone7 {
+    width: 58.33%;
+  }
+
+  .phone8 {
+    width: 66.66%;
+  }
+
+  .phone9 {
+    width: 75%;
+  }
+
+  .phone10 {
+    width: 83.33%;
+  }
+
+  .phone11 {
+    width: 91.66%;
+  }
+
+  .phone12 {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=search.component.css.map */
