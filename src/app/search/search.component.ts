@@ -18,7 +18,7 @@ export class SearchComponent implements OnInit {
   inGallery: boolean = false;
   userQueryString: string = '';
 
-  urlImages: Array<any> = [];
+  urlImages: Array<any> = ['', ''];
   imgData: object;
 
   constructor(private images: ImagesService) { }
@@ -77,10 +77,12 @@ export class SearchComponent implements OnInit {
 
   getImgList(queryString): void {
     // recuperation de la liste des images depuis le service images
+
     this.urlImages = [];
     this.images.getImages(queryString).subscribe(data => {
       (data.photos.photo).forEach(photo => {
-        const url = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+        const url = {};
+        url[photo.id] = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
         this.urlImages.push(url);
       });
     });

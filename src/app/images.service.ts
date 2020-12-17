@@ -18,7 +18,7 @@ export class ImagesService {
 
   getImages(url: string): Observable<any>{
 
-    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}&tags=${url}&format=json&nojsoncallback=1`;
+    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apikey}${url}&format=json&nojsoncallback=1`;
 
     // @ts-ignore
     return this.http.get(urlApi);
