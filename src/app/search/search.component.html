@@ -43,11 +43,5 @@
     Ne rechercher que les images appartenant a une galerie
   </label>
 </div>
-
-<div class="wrapImage">
-  <div  *ngFor="let url of urlImages | keyvalue">
-    <a routerLink="/image" routerLinkActive="active"><img src={{url.value}}></a>
-  </div>
-</div>
 </body>
 

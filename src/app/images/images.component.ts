@@ -8,16 +8,15 @@ import {ImagesService} from '../images.service';
 })
 export class ImagesComponent implements OnInit {
 
-  @Input() id: string;
+  @Input() urlImages: {};
   imgData: object;
 
   constructor(private images: ImagesService) {}
 
 
   ngOnInit(): void {
-    // recuperation de la liste des images
-    this.images.getInfos(this.id).subscribe(data => {
-      this.imgData = data;
-    });
+    // this.images.getInfos(this.id).subscribe(data => {
+    //   this.imgData = data;
+    // });
   }
 }
