@@ -46,8 +46,7 @@
 
 <div class="wrapImage">
   <div  *ngFor="let url of urlImages | keyvalue">
-    <a routerLink="/image" routerLinkActive="active"><img src={{url.value}}></a>
+    <span (click)="showImg(url.key)"><img src={{url.value}}></span>
   </div>
 </div>
 </body>
-
