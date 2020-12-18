@@ -7,12 +7,18 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'flickr';
-  urlImages: {} = [];
+  urlImages: string[];
+  idImages: string[];
   view: string;
 
-  forwardUrls(urlImages: {}): void {
+  forwardUrls(urlImages: string[]): void {
     this.urlImages = urlImages;
   }
+
+  forwardIds(idImages: string[]): void {
+    this.idImages = idImages;
+  }
+
   forwardView(view: string): void {
     this.view = view;
   }

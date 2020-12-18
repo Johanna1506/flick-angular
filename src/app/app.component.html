@@ -1,5 +1,5 @@
-<app-search (sendUrls)="forwardUrls($event)" (sendView)="forwardView($event)"></app-search>
+<app-search (sendUrls)="forwardUrls($event)" (sendIds)="forwardIds($event)" (sendView)="forwardView($event)"></app-search>
 
 <router-outlet></router-outlet>
 
-<app-images [urlImages]="urlImages" [view] = "view"></app-images>
+<app-images [urlImages]="urlImages" [idImages]="idImages" [view] = "view"></app-images>

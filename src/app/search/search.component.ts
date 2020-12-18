@@ -19,18 +19,22 @@ export class SearchComponent implements OnInit {
   inGallery: boolean = false;
   userQueryString: string = '';
   @Output() sendUrls = new EventEmitter<object>();
+  @Output() sendIds = new EventEmitter<object>();
   @Output() sendView = new EventEmitter<string>();
 
-  urlImages: {} = [];
+  urlImages: string[] = [];
+  idImages: string[] = [];
 
   constructor(private images: ImagesService, private router: Router) { }
 
   ngOnInit(): void {
+    this.sendView.emit(this.view);
   }
 
   search(): void {
     this.userQueryString = this.parseQuery();
     this.getImgList(this.userQueryString);
+    this.sendIds.emit(this.idImages);
     this.sendUrls.emit(this.urlImages);
   }
 
@@ -80,10 +84,12 @@ export class SearchComponent implements OnInit {
 
   getImgList(queryString): void {
     // recuperation de la liste des images depuis le service images
-    this.urlImages = {};
+    let index = 0;
     this.images.getImages(queryString).subscribe(data => {
       (data.photos.photo).forEach(photo => {
-        this.urlImages[photo.id] = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+        this.idImages[index] = photo.id;
+        this.urlImages[index] = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+        index ++;
       });
     });
     this.router.navigate(['/']);

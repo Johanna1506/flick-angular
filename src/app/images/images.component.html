@@ -1,6 +1,6 @@
 <div class="wrapImage" *ngIf="view == 'mosaic'">
-  <div  *ngFor="let url of urlImages | keyvalue">
-    <span (click)="showDetails(url.key)"><img src={{url.value}}></span>
+  <div  *ngFor="let url of urlImages; let i = index;">
+    <span (click)="showDetails(idImages[index])"><img src={{url}}></span>
   </div>
 </div>
 <div class="slider" *ngIf="view == 'slider'">
@@ -8,5 +8,3 @@
   <img [src]="currentImgUrl" />
   <button class="buttons" (click)="next()"> >> </button>
 </div>
-
-

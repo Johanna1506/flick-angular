@@ -1,4 +1,4 @@
-import {Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, OnChanges } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -6,9 +6,10 @@ import {ActivatedRoute, Router} from '@angular/router';
   templateUrl: './images.component.html',
   styleUrls: ['./images.component.scss']
 })
-export class ImagesComponent implements OnInit {
+export class ImagesComponent implements OnInit, OnChanges {
 
   @Input() urlImages;
+  @Input() idImages;
   selectedId: string;
   imgData: object;
   @Input() view: string;
@@ -20,9 +21,12 @@ export class ImagesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.view = 'mosaic';
-    this.currentImgId = this.urlImages.keys[this.index];
-    this.currentImgUrl = this.urlImages[this.currentImgId];
+  }
+
+  ngOnChanges(): void {
+    if (this.urlImages !== undefined && this.idImages !== undefined) {
+      this.updateImage();
+    }
   }
 
   showDetails(imgId: string): void {
@@ -33,16 +37,17 @@ export class ImagesComponent implements OnInit {
   }
 
   prev(): void {
-    const nbImages = this.urlImages.keys.length;
-    this.index = (this.index <= 0) ? (nbImages - 1) : this.index - 1;
-    this.currentImgId = this.urlImages.keys[this.index];
-    this.currentImgUrl = this.urlImages[this.currentImgId];
+    this.index = (this.index <= 0) ? (this.urlImages.length - 1) : this.index - 1;
+    this.updateImage();
   }
 
   next(): void {
-    const nbImages = this.urlImages.keys.length;
-    this.index = (this.index >= nbImages - 1) ? 0 : this.index + 1;
-    this.currentImgId = this.urlImages.keys[this.index];
-    this.currentImgUrl = this.urlImages[this.currentImgId];
+    this.index = (this.index >= this.urlImages.length - 1) ? 0 : this.index + 1;
+    this.updateImage();
+  }
+
+  updateImage(): void {
+    this.currentImgId = this.idImages[this.index];
+    this.currentImgUrl = this.urlImages[this.index];
   }
 }
