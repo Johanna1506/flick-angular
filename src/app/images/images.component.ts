@@ -20,6 +20,7 @@ export class ImagesComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.view = 'mosaic';
     this.currentImgId = this.urlImages.keys[this.index];
     this.currentImgUrl = this.urlImages[this.currentImgId];
   }
