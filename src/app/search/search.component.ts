@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class SearchComponent implements OnInit {
 
   advanced: boolean = false;
-  view: string = "list";
+  view: string = "mosaic";
   userTags: string;
   tailleImg: string = '';
   dateMin: string = '';
@@ -80,7 +80,6 @@ export class SearchComponent implements OnInit {
 
   getImgList(queryString): void {
     // recuperation de la liste des images depuis le service images
-
     this.urlImages = {};
     this.images.getImages(queryString).subscribe(data => {
       (data.photos.photo).forEach(photo => {
@@ -94,8 +93,8 @@ export class SearchComponent implements OnInit {
     this.advanced = !this.advanced;
   }
 
-  activateListView(): void {
-    this.view = 'list';
+  activateMosaicView(): void {
+    this.view = 'mosaic';
     this.sendView.emit(this.view);
   }
 

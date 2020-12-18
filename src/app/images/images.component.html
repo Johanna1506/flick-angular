@@ -1,8 +1,12 @@
-<div class="wrapImage" *ngIf="view == 'list'">
+<div class="wrapImage" *ngIf="view == 'mosaic'">
   <div  *ngFor="let url of urlImages | keyvalue">
     <span (click)="showDetails(url.key)"><img src={{url.value}}></span>
   </div>
 </div>
-<div class="" *ngIf="view == 'slider'">
-  coucou
+<div class="slider" *ngIf="view == 'slider'">
+  <button class="buttons" (click)="prev()"> << </button>
+  <img [src]="currentImgUrl" />
+  <button class="buttons" (click)="next()"> >> </button>
 </div>
+
+

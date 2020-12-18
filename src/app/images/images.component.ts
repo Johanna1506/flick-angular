@@ -8,15 +8,20 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class ImagesComponent implements OnInit {
 
-  @Input() urlImages: {};
+  @Input() urlImages;
   selectedId: string;
   imgData: object;
   @Input() view: string;
+  index: number = 0;
+  currentImgId: string;
+  currentImgUrl: string;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
 
   ngOnInit(): void {
+    this.currentImgId = this.urlImages.keys[this.index];
+    this.currentImgUrl = this.urlImages[this.currentImgId];
   }
 
   showDetails(imgId: string): void {
@@ -24,5 +29,19 @@ export class ImagesComponent implements OnInit {
       .then(() => {
         window.location.reload();
       });
+  }
+
+  prev(): void {
+    const nbImages = this.urlImages.keys.length;
+    this.index = (this.index <= 0) ? (nbImages - 1) : this.index - 1;
+    this.currentImgId = this.urlImages.keys[this.index];
+    this.currentImgUrl = this.urlImages[this.currentImgId];
+  }
+
+  next(): void {
+    const nbImages = this.urlImages.keys.length;
+    this.index = (this.index >= nbImages - 1) ? 0 : this.index + 1;
+    this.currentImgId = this.urlImages.keys[this.index];
+    this.currentImgUrl = this.urlImages[this.currentImgId];
   }
 }
