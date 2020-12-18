@@ -1,8 +1,5 @@
 import {Component, OnInit, Input } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import {ImagesService} from '../images.service';
 
 @Component({
   selector: 'app-images',
@@ -14,6 +11,7 @@ export class ImagesComponent implements OnInit {
   @Input() urlImages: {};
   selectedId: string;
   imgData: object;
+  @Input() view: string;
 
   constructor(private route: ActivatedRoute, private router: Router) {}
 
