@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class SearchComponent implements OnInit {
 
   advanced: boolean = false;
+  view: string = "list";
   userTags: string;
   tailleImg: string = '';
   dateMin: string = '';
@@ -18,6 +19,7 @@ export class SearchComponent implements OnInit {
   inGallery: boolean = false;
   userQueryString: string = '';
   @Output() sendUrls = new EventEmitter<object>();
+  @Output() sendView = new EventEmitter<string>();
 
   urlImages: {} = [];
 
@@ -90,6 +92,16 @@ export class SearchComponent implements OnInit {
 
   toggleAdvanced(): void {
     this.advanced = !this.advanced;
+  }
+
+  activateListView(): void {
+    this.view = 'list';
+    this.sendView.emit(this.view);
+  }
+
+  activateSliderView(): void {
+    this.view = 'slider';
+    this.sendView.emit(this.view);
   }
 
 }

@@ -1,5 +1,8 @@
-<div class="wrapImage">
+<div class="wrapImage" *ngIf="view == 'list'">
   <div  *ngFor="let url of urlImages | keyvalue">
     <span (click)="showDetails(url.key)"><img src={{url.value}}></span>
   </div>
+</div>
+<div class="" *ngIf="view == 'slider'">
+  coucou
 </div>
