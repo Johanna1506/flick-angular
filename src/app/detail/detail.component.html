@@ -1,3 +1,5 @@
-<!--<h2>Nom de l'auteur: {{imgData.owner.realname}}</h2>-->
-<!--<h2>Date de publication : {{imgData.dates.taken | date: 'shortDate'}} </h2>-->
+
+<img src="https://live.staticflickr.com/{{imgData.server}}/{{imgData.id}}_{{imgData.secret}}.jpg" alt="">
+<h2>{{imgData.dates.taken | date: 'shortDate'}}</h2>
+<h2>{{imgData.owner.realname}}</h2>
 
