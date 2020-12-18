@@ -22,6 +22,9 @@ export class ImagesComponent implements OnInit {
   }
 
   showDetails(imgId: string): void {
-    this.router.navigate(['/image', imgId]);
+    this.router.navigate(['/image', imgId])
+      .then(() => {
+        window.location.reload();
+      });
   }
 }

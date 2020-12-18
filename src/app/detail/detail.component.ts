@@ -19,7 +19,8 @@ export class DetailComponent implements OnInit {
     this.image$ = this.images.getInfos(imgId);
 
     this.image$.subscribe(data => {
-      this.imgData = data;
+      this.imgData = data.photo;
+      console.log(this.imgData);
     });
   }
 }

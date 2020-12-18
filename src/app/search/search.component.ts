@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import {ImagesService} from '../images.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -20,7 +21,7 @@ export class SearchComponent implements OnInit {
 
   urlImages: {} = [];
 
-  constructor(private images: ImagesService) { }
+  constructor(private images: ImagesService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -84,6 +85,7 @@ export class SearchComponent implements OnInit {
         this.urlImages[photo.id] = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
       });
     });
+    this.router.navigate(['/']);
   }
 
   toggleAdvanced(): void {
