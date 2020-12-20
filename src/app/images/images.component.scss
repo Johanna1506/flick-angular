@@ -1,11 +1,31 @@
-.wrapImage {
+@import "../../assets/common";
+
+.wrapImage  {
   display: flex;
   flex-wrap: wrap;
-
+  align-items: center;
   div {
     flex: 1 1 20%;
-    img {
-      width: 250px;
+  }
+  img {
+    width: 250px;
+    height: 250px;
+    margin: 12px;
+  }
+}
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    margin: 120px;
+    svg {
+      width: 36px;
+      fill: $grey;
+    }
+    &:first-of-type {
+      transform: rotate(180deg);
     }
   }
+
 }

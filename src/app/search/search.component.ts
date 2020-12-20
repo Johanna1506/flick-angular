@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, OnChanges} from '@angular/core';
 import {ImagesService} from '../images.service';
 import {Router} from '@angular/router';
 
@@ -89,6 +89,8 @@ export class SearchComponent implements OnInit {
       (data.photos.photo).forEach(photo => {
         this.idImages[index] = photo.id;
         this.urlImages[index] = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
+        console.log(this.idImages[index]);
+        console.log(this.urlImages[index]);
         index ++;
       });
     });

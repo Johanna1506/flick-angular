@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const apikey = 'd3e6629530f0590b0667b06647ce4c39';
+const apikey = '9e01095e0f1e2d41940a0a36c8c523c5';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,12 @@ export class ImagesService {
     // @ts-ignore
     return this.http.get(urlApi);
 
+  }
+
+  getImagesAuthor(userId: string): Observable<any> {
+    const urlApi = `https://www.flickr.com/services/rest/?method=flickr.people.getPhotosOf&api_key=${apikey}&user_id=${userId}&format=json&nojsoncallback=1`;
+
+    return this.http.get(urlApi);
   }
 
 }

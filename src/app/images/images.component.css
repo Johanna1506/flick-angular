@@ -1,12 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: #32506d;
+}
+
 .wrapImage {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
 }
 .wrapImage div {
   flex: 1 1 20%;
 }
-.wrapImage div img {
+.wrapImage img {
   width: 250px;
+  height: 250px;
+  margin: 12px;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider span {
+  margin: 120px;
+}
+.slider span svg {
+  width: 36px;
+  fill: #32506d;
+}
+.slider span:first-of-type {
+  transform: rotate(180deg);
 }
 
 /*# sourceMappingURL=images.component.css.map */

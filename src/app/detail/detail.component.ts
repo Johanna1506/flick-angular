@@ -10,7 +10,9 @@ import {ImagesService} from '../images.service';
 })
 export class DetailComponent implements OnInit {
   image$: Observable<any>;
-  imgData: {} = [];
+  imgData: {} = {};
+  otherImgAuthor: {};
+
 
   constructor(private images: ImagesService, private route: ActivatedRoute, private router: Router) { }
 
@@ -20,7 +22,10 @@ export class DetailComponent implements OnInit {
 
     this.image$.subscribe(data => {
       this.imgData = data.photo;
-      console.log(this.imgData);
-    });
+    }, error => {console.log(error); });
+
+    /*this.images.getImagesAuthor(this.imgData.owner.nsid).subscribe(data => {
+      this.otherImgAuthor = data;
+    });*/
   }
 }
