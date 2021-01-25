@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, EventEmitter, OnChanges} from '@angular/core';
 import {ImagesService} from '../images.service';
 import {Router} from '@angular/router';
+import {CacheService} from '../cache.service';
 
 @Component({
   selector: 'app-search',
@@ -25,7 +26,7 @@ export class SearchComponent implements OnInit {
   urlImages: string[] = [];
   idImages: string[] = [];
 
-  constructor(private images: ImagesService, private router: Router) { }
+  constructor(private images: ImagesService, private router: Router, private cache: CacheService) { }
 
   ngOnInit(): void {
     this.sendView.emit(this.view);
@@ -89,8 +90,6 @@ export class SearchComponent implements OnInit {
       (data.photos.photo).forEach(photo => {
         this.idImages[index] = photo.id;
         this.urlImages[index] = `https://live.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
-        console.log(this.idImages[index]);
-        console.log(this.urlImages[index]);
         index ++;
       });
     });
